@@ -1,5 +1,8 @@
 function balancingParentheses(string) {
-  // type your code here
+  if (string.includes("()")) {
+    return balancingParentheses(string.replace("()", ""))
+  }
+  return string.length
 }
 
 if (require.main === module) {
@@ -7,12 +10,14 @@ if (require.main === module) {
   console.log("Expecting: 0");
   console.log(balancingParentheses('(()())'));
 
-  console.log("");
+  console.log("Expecting: 2");
+  console.log(balancingParentheses(')('));
 
   console.log("Expecting: 2");
   console.log(balancingParentheses('()))'));
 
-  console.log("");
+  console.log("Expecting: 2");
+  console.log(balancingParentheses(')((((()))((())))()(()))('));
 
   console.log("Expecting: 1");
   console.log(balancingParentheses(')'));
@@ -21,4 +26,5 @@ if (require.main === module) {
 module.exports = balancingParentheses;
 
 // Please add your pseudocode to this file
+
 // And a written explanation of your solution
